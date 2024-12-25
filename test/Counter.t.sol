@@ -9,12 +9,22 @@ contract TestContract is Test {
     Counter c;
 
     function setUp() public {
-        c = new Counter(100);
+        c = new Counter(2);
     }
 
     function testInc() public {
         c.increment();
         c.increment();
-        assertEq(c.getNum(), 102);
+        assertEq(c.getNum(), 4, "increment succes");
+    }
+    function testDec() public {
+        c.decrement();
+        c.decrement();
+        assertEq(c.getNum(), 0, "decrement success");
+    }
+    function testFailDec() public {
+        c.decrement();
+        c.decrement();
+        c.decrement();
     }
 }
