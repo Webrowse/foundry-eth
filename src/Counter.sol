@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: Unlicense
 pragma solidity ^0.8.13;
 
-contract Contract {
-    uint public num;
+contract Counter {
+    uint private num;
 
     constructor(uint _num){
         num = _num;
@@ -12,6 +12,9 @@ contract Contract {
     }
     function decrement() public {
         num--;
+    }
+    function getNum() public view returns (uint256) {
+        return num;
     }
 
  }
